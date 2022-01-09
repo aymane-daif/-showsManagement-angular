@@ -1,0 +1,8 @@
+<label [for]="inputName">{{ inputName | titlecase }}</label>
+<input
+  [type]="inputType"
+  [id]="inputName"
+  [name]="inputName"
+  [placeholder]="'Enter your ' + inputName"
+  required
+/>

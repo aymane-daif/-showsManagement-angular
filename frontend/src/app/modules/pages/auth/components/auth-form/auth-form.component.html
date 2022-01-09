@@ -1,0 +1,9 @@
+<h3>{{ heading }} <span class="dot">.</span></h3>
+<small
+  >{{ question }} <a [routerLink]="goToPagePath()">{{ goToPage() }}</a></small
+>
+<form id="form">
+  <app-signin-form *ngIf="formType === 'Sign in'"></app-signin-form>
+  <app-signup-form *ngIf="formType === 'Sign up'"></app-signup-form>
+  <a href="#" role="button" class="btn outline">{{ formType }}</a>
+</form>
