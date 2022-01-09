@@ -1,0 +1,30 @@
+@import "@picocss/pico/css/pico.min.css";
+
+:root {
+  --form-element-background-color: rgba(0, 0, 0, 0.8);
+  --form-element-placeholder-color: auto;
+  --form-element-spacing-vertical: 0.4rem;
+  --form-element-spacing-horizontal: 0.65rem;
+  --primary: #d91b42;
+  --primary-hover: #f15f7c;
+  --outline-width: 1px;
+  --background-color: rgba(0, 0, 0, 0.8);
+}
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+  min-height: 100vh;
+}
+small {
+  --font-size: 0.75em;
+}
+label {
+  font-size: 0.8rem;
+}
+input {
+  font-size: 0.75rem;
+}
+@media (max-width: 576px) {
+  body {
+    min-height: auto;
+  }
+}
