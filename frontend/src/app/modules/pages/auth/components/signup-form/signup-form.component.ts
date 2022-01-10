@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserSignUp } from '../../interfaces/userSignUp';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -8,21 +10,36 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class SignupFormComponent implements OnInit {
   signUpForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    repeatedPassword: new FormControl(''),
-    terms: new FormControl(false),
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    repeatedPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    terms: new FormControl(false, [Validators.requiredTrue]),
   });
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
   onSubmit($event: any) {
     $event.preventDefault();
-    console.log(this.signUpForm.get('username')?.value);
-    console.log(this.signUpForm.get('email')?.value);
-    console.log(this.signUpForm.get('password')?.value);
-    console.log(this.signUpForm.get('repeatedPassword')?.value);
-    console.log(this.signUpForm.get('terms')?.value);
+    if (this.signUpForm.invalid) {
+      // invalid data
+      console.log(this.signUpForm.getError);
+      return;
+    }
+    const userData: UserSignUp = {
+      username: this.signUpForm.get('username')?.value,
+      email: this.signUpForm.get('email')?.value,
+      password: this.signUpForm.get('password')?.value,
+    };
+    this.authService.signUp(userData).subscribe((response: any) => {
+      console.log(response?.success);
+      console.log(response?.message);
+    });
   }
 }
