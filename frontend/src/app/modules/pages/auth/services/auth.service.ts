@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserSignUp } from '../interfaces/userSignUp';
 import { UserSignIn } from '../interfaces/userSignIn';
@@ -15,6 +15,8 @@ export class AuthService {
   }
 
   signIn(userData: UserSignIn) {
-    return this.http.post(`${this.baseUrl}/login`, userData);
+    return this.http.post(`${this.baseUrl}/login`, userData, {
+      observe: 'response',
+    });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserSignIn } from '../../interfaces/userSignIn';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin-form',
@@ -33,7 +34,11 @@ export class SigninFormComponent implements OnInit {
       password: this.signInForm.get('password')?.value,
     };
     this.authService.signIn(userData).subscribe((response: any) => {
-      console.log(response);
+      let jwtToken = response?.headers.get('Authorization');
+      if (jwtToken) {
+        console.log(response?.headers.get('Authorization'));
+        localStorage.setItem('token', jwtToken);
+      }
     });
   }
 }
