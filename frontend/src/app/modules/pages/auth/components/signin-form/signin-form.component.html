@@ -1,2 +1,21 @@
-<app-input-field inputType="text" inputName="username"></app-input-field>
-<app-input-field inputType="password" inputName="password"></app-input-field>
+<form id="form" [formGroup]="signInForm" (ngSubmit)="onSubmit($event)">
+  <label for="username">Username</label>
+  <input
+    formControlName="username"
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Enter your username"
+    required
+  />
+  <label for="password">Password</label>
+  <input
+    formControlName="password"
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter your password"
+    required
+  />
+  <button role="button" class="btn outline" type="submit">Sign in</button>
+</form>

@@ -1,14 +1,50 @@
-<app-input-field inputType="text" inputName="username"></app-input-field>
-<app-input-field inputType="email" inputName="email"></app-input-field>
-<div class="grid">
-  <app-input-field inputType="password" inputName="password"></app-input-field>
-  <app-input-field
-    inputType="password"
-    inputName="reapeted password"
-  ></app-input-field>
-</div>
+<form id="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit($event)">
+  <label for="username">Username</label>
+  <input
+    formControlName="username"
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Enter your username"
+    required
+  />
+  <label for="email">Email</label>
+  <input
+    formControlName="email"
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter your email"
+    required
+  />
+  <div class="grid">
+    <label for="password"
+      >Password
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+      />
+    </label>
 
-<label for="terms">
-  <input type="checkbox" id="terms" name="terms" />
-  I agree to Terms of Service and Privacy Policy.
-</label>
+    <label for="repeatedPassword"
+      >Reapeted password
+      <input
+        formControlName="repeatedPassword"
+        type="password"
+        id="repeatedPassword"
+        name="repeatedPassword"
+        placeholder="Enter your reapeted password"
+        required
+      />
+    </label>
+  </div>
+  <label for="terms">
+    <input type="checkbox" id="terms" name="terms" formControlName="terms" />
+    I agree to Terms of Service and Privacy Policy.
+  </label>
+  <button role="button" class="btn outline" type="submit">Sign up</button>
+</form>
