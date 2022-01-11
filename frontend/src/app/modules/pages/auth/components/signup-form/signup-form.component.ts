@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserSignUp } from '../../interfaces/userSignUp';
+
+import { IUserSignUp } from '../../interfaces/auth';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -32,7 +33,7 @@ export class SignupFormComponent implements OnInit {
       console.log(this.signUpForm.getError);
       return;
     }
-    const userData: UserSignUp = {
+    const userData: IUserSignUp = {
       username: this.signUpForm.get('username')?.value,
       email: this.signUpForm.get('email')?.value,
       password: this.signUpForm.get('password')?.value,

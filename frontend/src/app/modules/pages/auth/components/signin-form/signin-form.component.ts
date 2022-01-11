@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { AuthService } from '../../services/auth.service';
-import { UserSignIn } from '../../interfaces/userSignIn';
-import { HttpHeaders } from '@angular/common/http';
+import { IUserSignIn } from '../../interfaces/auth';
 
 @Component({
   selector: 'app-signin-form',
@@ -29,7 +29,7 @@ export class SigninFormComponent implements OnInit {
       console.log(this.signInForm.getError);
       return;
     }
-    const userData: UserSignIn = {
+    const userData: IUserSignIn = {
       username: this.signInForm.get('username')?.value,
       password: this.signInForm.get('password')?.value,
     };
