@@ -9,6 +9,9 @@ import { SigninHomeComponent } from './components/signin-home/signin-home.compon
 import { SignupHomeComponent } from './components/signup-home/signup-home.component';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { AuthHomeComponent } from './components/auth-home/auth-home.component';
+import { HeaderComponent } from 'src/app/components/header/header.component';
+import { NotFoundHomeComponent } from '../notFound/not-found-home/not-found-home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     SigninFormComponent,
     SignupFormComponent,
     FormHeaderComponent,
+    AuthHomeComponent,
+    HeaderComponent,
+    NotFoundHomeComponent,
   ],
   imports: [
     CommonModule,

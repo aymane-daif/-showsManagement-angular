@@ -14,7 +14,7 @@ export class FormHeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   goToPath() {
-    return this.formType === 'Sign up' ? '/signin' : '/signup';
+    return this.formType === 'Sign up' ? '/auth/signin' : '/auth/signup';
   }
   goToPage(): String {
     return this.formType === 'Sign up' ? 'Sign in' : 'Sign up';
