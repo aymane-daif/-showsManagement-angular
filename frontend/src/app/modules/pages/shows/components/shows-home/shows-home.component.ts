@@ -9,6 +9,7 @@ import { DataService } from 'src/app/modules/shared/services/data.service';
 export class ShowsHomeComponent implements OnInit {
   totalTvShows: any;
   username: String = '';
+  shows: any;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class ShowsHomeComponent implements OnInit {
     }
     this.dataService.getShows(this.username).subscribe({
       next: (response: any) => {
+        this.shows = response;
         console.log(response);
       },
       error: (response: any) => {
