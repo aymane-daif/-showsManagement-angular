@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/modules/shared/services/data.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shows-home',
@@ -10,7 +11,17 @@ export class ShowsHomeComponent implements OnInit {
   totalTvShows: any;
   username: String = '';
   shows: any;
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  showImage(postImage: any) {
+    let base64data =
+      'data:' + postImage.contentType + ';base64,' + postImage.data;
+
+    return this.sanitizer.bypassSecurityTrustUrl(base64data);
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('totalTvShows')) {

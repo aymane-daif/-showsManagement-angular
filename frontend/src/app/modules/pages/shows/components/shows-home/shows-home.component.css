@@ -1,0 +1,21 @@
+ul,
+li {
+  list-style: none;
+}
+.poster {
+  height: 16rem;
+  object-fit: cover;
+}
+.shows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.show {
+  display: flex;
+  flex-direction: column;
+  max-width: 15rem;
+  margin: 1rem;
+  cursor: pointer;
+}
