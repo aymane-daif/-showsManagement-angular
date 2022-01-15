@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/modules/shared/services/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shows-home',
@@ -13,7 +14,8 @@ export class ShowsHomeComponent implements OnInit {
   shows: any;
   constructor(
     private dataService: DataService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
 
   showImage(postImage: any) {
@@ -22,7 +24,9 @@ export class ShowsHomeComponent implements OnInit {
 
     return this.sanitizer.bypassSecurityTrustUrl(base64data);
   }
-
+  addShow() {
+    this.router.navigate(['shows/add']);
+  }
   ngOnInit(): void {
     if (localStorage.getItem('totalTvShows')) {
       this.totalTvShows = localStorage.getItem('totalTvShows');

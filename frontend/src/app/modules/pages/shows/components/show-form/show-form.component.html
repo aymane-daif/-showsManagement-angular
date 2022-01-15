@@ -1,0 +1,90 @@
+<main class="container">
+  <form id="form">
+    <label for="name">Show's name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter show's name"
+      required
+    />
+
+    <div class="grid">
+      <label for="lastSeenEpisode"
+        >Last seen episode
+        <input
+          type="text"
+          id="lastSeenEpisode"
+          name="lastSeenEpisode"
+          placeholder="Enter last seen episode"
+          required
+        />
+      </label>
+
+      <label for="lastSeenSeason"
+        >Last seen season
+        <input
+          type="text"
+          id="lastSeenSeason"
+          name="lastSeenSeason"
+          placeholder="Enter last seen season"
+          required
+        />
+      </label>
+    </div>
+
+    <div class="grid">
+      <label for="upComingEpisode"
+        >UpComing episode
+        <input
+          type="text"
+          id="upComingEpisode"
+          name="upComingEpisode"
+          placeholder="Enter upcoming episode"
+          required
+        />
+      </label>
+
+      <label for="upComingSeason"
+        >UpComing season number
+        <input
+          type="text"
+          id="upComingSeason"
+          name="upComingSeason"
+          placeholder="Enter upcoming season number"
+          required
+        />
+      </label>
+    </div>
+
+    <fieldset>
+      <legend>Show's state</legend>
+      <label for="ongoing">
+        <input type="radio" id="ongoing" name="state" value="ONGOING" checked />
+        ONGOING
+      </label>
+      <label for="complete">
+        <input type="radio" id="complete" name="state" value="COMPLETE" />
+        COMPLETE
+      </label>
+
+      <label for="completed">
+        <input type="checkbox" id="completed" name="completed" role="switch" />
+        Show completed
+      </label>
+    </fieldset>
+    <label for="file"
+      >Upload show poster
+      <input type="file" id="file" name="file" />
+    </label>
+    <button role="button" class="btn outline" type="submit">Add show</button>
+  </form>
+</main>
+<!-- {
+  "name":"friends",
+  "completed": true,
+  "showState":"COMPLETE", 
+  "userId":1,
+  "lastSeenEpisodeId":1,
+  "imageFileId":"8a1eecb8-9d9d-4a6e-b060-20cd8951117d"
+} -->

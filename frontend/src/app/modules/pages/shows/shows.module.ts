@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ShowsRoutingModule } from './shows-routing.module';
 import { ShowsHomeComponent } from './components/shows-home/shows-home.component';
+import { ShowFormComponent } from './components/show-form/show-form.component';
 
 
 @NgModule({
   declarations: [
-    ShowsHomeComponent
+    ShowsHomeComponent,
+    ShowFormComponent
   ],
   imports: [
     CommonModule,
