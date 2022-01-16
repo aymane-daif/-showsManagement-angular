@@ -10,8 +10,8 @@ import { SignupHomeComponent } from './components/signup-home/signup-home.compon
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { AuthHomeComponent } from './components/auth-home/auth-home.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
 import { NotFoundHomeComponent } from '../notFound/not-found-home/not-found-home.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { NotFoundHomeComponent } from '../notFound/not-found-home/not-found-home
     SignupFormComponent,
     FormHeaderComponent,
     AuthHomeComponent,
-    HeaderComponent,
     NotFoundHomeComponent,
   ],
   imports: [
@@ -29,6 +28,7 @@ import { NotFoundHomeComponent } from '../notFound/not-found-home/not-found-home
     AuthRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
   ],
 })
 export class AuthModule {}

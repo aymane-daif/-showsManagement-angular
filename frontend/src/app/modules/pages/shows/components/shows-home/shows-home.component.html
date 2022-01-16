@@ -1,15 +1,17 @@
-<p>user with id {{ username }} has {{ totalTvShows }} shows</p>
-<button (click)="addShow()">Add Show</button>
-<ul class="shows">
-  <li *ngFor="let show of shows">
-    <article class="show">
-      <header>
-        <strong>{{ show.name | titlecase }}</strong>
-      </header>
-      <img [src]="showImage(show.postImage)" class="poster" />
-      <footer>
-        Completed:<span>{{ show.completed }}</span>
-      </footer>
-    </article>
-  </li>
-</ul>
+<app-shows-header></app-shows-header>
+<div class="container">
+  <button (click)="addShow()">Add Show</button>
+  <ul class="shows">
+    <li *ngFor="let show of shows">
+      <article class="show">
+        <header>
+          <strong>{{ show.name | titlecase }}</strong>
+        </header>
+        <img [src]="showImage(show.postImage)" class="poster" />
+        <footer>
+          Completed:<span>{{ show.completed }}</span>
+        </footer>
+      </article>
+    </li>
+  </ul>
+</div>

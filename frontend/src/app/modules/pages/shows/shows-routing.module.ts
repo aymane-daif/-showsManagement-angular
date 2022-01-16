@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShowFormComponent } from './components/show-form/show-form.component';
+import { AddShowComponent } from './components/add-show/add-show.component';
 import { ShowsHomeComponent } from './components/shows-home/shows-home.component';
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'shows/add',
-    component: ShowFormComponent,
+    component: AddShowComponent,
   },
 ];
 
