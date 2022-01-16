@@ -1,7 +1,13 @@
 <main class="container">
-  <form id="form">
+  <form
+    id="form"
+    [formGroup]="addShowForm"
+    (ngSubmit)="addShow($event)"
+    enctype="multipart/form-data"
+  >
     <label for="name">Show's name</label>
     <input
+      formControlName="name"
       type="text"
       id="name"
       name="name"
@@ -14,6 +20,7 @@
         >Last seen episode
         <input
           type="text"
+          formControlName="lastSeenEpisode"
           id="lastSeenEpisode"
           name="lastSeenEpisode"
           placeholder="Enter last seen episode"
@@ -25,6 +32,7 @@
         >Last seen season
         <input
           type="text"
+          formControlName="lastSeenSeason"
           id="lastSeenSeason"
           name="lastSeenSeason"
           placeholder="Enter last seen season"
@@ -38,6 +46,7 @@
         >UpComing episode
         <input
           type="text"
+          formControlName="upComingEpisode"
           id="upComingEpisode"
           name="upComingEpisode"
           placeholder="Enter upcoming episode"
@@ -49,6 +58,7 @@
         >UpComing season number
         <input
           type="text"
+          formControlName="upComingSeason"
           id="upComingSeason"
           name="upComingSeason"
           placeholder="Enter upcoming season number"
@@ -59,23 +69,48 @@
 
     <fieldset>
       <legend>Show's state</legend>
-      <label for="ongoing">
-        <input type="radio" id="ongoing" name="state" value="ONGOING" checked />
+      <label for="ONGOING">
+        <input
+          type="radio"
+          id="ONGOING"
+          formControlName="showState"
+          name="showState"
+          value="ONGOING"
+          checked
+        />
         ONGOING
       </label>
-      <label for="complete">
-        <input type="radio" id="complete" name="state" value="COMPLETE" />
+      <label for="COMPLETE">
+        <input
+          type="radio"
+          id="COMPLETE"
+          formControlName="showState"
+          name="showState"
+          value="COMPLETE"
+        />
         COMPLETE
       </label>
 
       <label for="completed">
-        <input type="checkbox" id="completed" name="completed" role="switch" />
+        <input
+          type="checkbox"
+          id="completed"
+          formControlName="completed"
+          name="completed"
+          role="switch"
+        />
         Show completed
       </label>
     </fieldset>
     <label for="file"
       >Upload show poster
-      <input type="file" id="file" name="file" />
+      <input
+        type="file"
+        id="file"
+        name="file"
+        accept="image/*"
+        (change)="getFile($event)"
+      />
     </label>
     <button role="button" class="btn outline" type="submit">Add show</button>
   </form>
@@ -84,7 +119,9 @@
   "name":"friends",
   "completed": true,
   "showState":"COMPLETE", 
-  "userId":1,
-  "lastSeenEpisodeId":1,
-  "imageFileId":"8a1eecb8-9d9d-4a6e-b060-20cd8951117d"
+  "lastSeenEpisode",
+  "lastSeenSeason",
+  "upComingEpisode",
+  "upComingSeason",
+  "file"
 } -->
