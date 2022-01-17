@@ -8,6 +8,16 @@ import { DataService } from 'src/app/modules/shared/services/data.service';
   styleUrls: ['./show-form.component.css'],
 })
 export class ShowFormComponent implements OnInit {
+  emojis = [
+    { name: '😍', value: '😍' },
+    { name: '👍', value: '👍' },
+    { name: '👎', value: '👎' },
+    { name: '👌', value: '👌' },
+    { name: '💘', value: '💘' },
+    { name: '👅', value: '👅' },
+    { name: '🤮', value: '🤮' },
+  ];
+
   selectedFile: any;
 
   addShowForm = new FormGroup({
@@ -16,7 +26,7 @@ export class ShowFormComponent implements OnInit {
     lastSeenSeason: new FormControl(''),
     upComingEpisode: new FormControl(''),
     upComingSeason: new FormControl(''),
-    showEmoji: new FormControl(''),
+    showEmoji: new FormControl(this.emojis[0].value),
     showState: new FormControl('ONGOING'),
     completed: new FormControl(false),
   });
@@ -26,7 +36,6 @@ export class ShowFormComponent implements OnInit {
   addShow(event: any) {
     event.preventDefault();
     console.log(this.addShowForm.value);
-
     this.dataService.postShow(this.addShowForm.value, this.selectedFile);
   }
   getFile(event: any) {

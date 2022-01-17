@@ -65,17 +65,13 @@
       />
     </label>
   </div>
-  <label for="upComingSeason"
-      >Show emoji
-      <input
-        type="text"
-        formControlName="showEmoji"
-        id="showEmoji"
-        name="showEmoji"
-        placeholder="Express your reaction to the show by an emoji"
-        required
-      />
-    </label>
+  <label for="showEmoji">Express your reaction to the show by an emoji</label>
+  <select id="showEmoji" formControlName="showEmoji" required>
+    <option *ngFor="let emoji of emojis" [ngValue]="emoji.value">
+      {{ emoji.value }}
+    </option>
+  </select>
+
   <fieldset>
     <legend>Show's state</legend>
     <label for="ONGOING">
