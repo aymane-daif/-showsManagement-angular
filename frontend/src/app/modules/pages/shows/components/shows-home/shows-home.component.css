@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
 ul,
 li {
   list-style: none;
@@ -5,17 +6,45 @@ li {
 .poster {
   height: 16rem;
   object-fit: cover;
+  border-radius: 25px;
 }
 .shows {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 }
 .show {
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
-  max-width: 15rem;
+  width: 15rem;
   margin: 1rem;
   cursor: pointer;
+}
+.show-header {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  letter-spacing: 2px;
+  word-spacing: 6px;
+}
+.show-header strong {
+  font-family: "Mochiy Pop P One", sans-serif;
+  color: #cac5d0;
+}
+.show-header kbd {
+  margin-left: auto;
+  padding: 0.25rem 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.show-footer .show-emoji {
+  background: #4c5a67;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+.show-header,
+.show-footer {
+  margin: 1rem 0;
+  padding: 0;
 }

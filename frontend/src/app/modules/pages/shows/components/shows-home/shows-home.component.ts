@@ -11,12 +11,20 @@ import { Router } from '@angular/router';
 export class ShowsHomeComponent implements OnInit {
   totalTvShows: any;
   username: String = '';
-  shows: any;
+  shows: any = [];
+  placeHolderNumbers: any = [];
+  isLoading = true;
   constructor(
     private dataService: DataService,
     private sanitizer: DomSanitizer,
     private router: Router
   ) {}
+
+  setNumberPlaceHolders() {
+    for (let i = 0; i < 7; i++) {
+      this.placeHolderNumbers.push(i);
+    }
+  }
 
   showImage(postImage: any) {
     let base64data =
@@ -28,6 +36,9 @@ export class ShowsHomeComponent implements OnInit {
     this.router.navigate(['shows/add']);
   }
   ngOnInit(): void {
+    this.setNumberPlaceHolders();
+    this.isLoading = true;
+
     if (localStorage.getItem('totalTvShows')) {
       this.totalTvShows = localStorage.getItem('totalTvShows');
     }
@@ -37,10 +48,18 @@ export class ShowsHomeComponent implements OnInit {
     this.dataService.getShows(this.username).subscribe({
       next: (response: any) => {
         this.shows = response;
+        this.totalTvShows = this.shows.length;
+        localStorage.setItem('totalTvShows', this.totalTvShows);
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
         console.log(response);
       },
       error: (response: any) => {
         console.log(response + '*******');
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
       },
     });
   }

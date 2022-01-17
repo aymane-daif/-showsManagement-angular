@@ -8,9 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { AddShowComponent } from './components/add-show/add-show.component';
 import { ShowsHeaderComponent } from './components/shows-header/shows-header.component';
+import { ShowLoaderComponent } from './components/show-loader/show-loader.component';
 
 @NgModule({
-  declarations: [ShowsHomeComponent, ShowFormComponent, AddShowComponent, ShowsHeaderComponent],
+  declarations: [ShowsHomeComponent, ShowFormComponent, AddShowComponent, ShowsHeaderComponent, ShowLoaderComponent],
   imports: [
     CommonModule,
     ShowsRoutingModule,

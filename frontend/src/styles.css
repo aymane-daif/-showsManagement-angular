@@ -9,7 +9,8 @@
   --primary-hover: #f15f7c;
   --outline-width: 1px;
   --background-color: rgba(0, 0, 0, 0.8);
-  --card-background-color: #121212;
+  --card-background-color: #15202b;
+  --card-sectionning-background-color: #15202b;
 }
 body {
   background-color: rgba(0, 0, 0, 0.8);

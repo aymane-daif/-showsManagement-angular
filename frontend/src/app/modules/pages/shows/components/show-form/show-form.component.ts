@@ -16,6 +16,7 @@ export class ShowFormComponent implements OnInit {
     lastSeenSeason: new FormControl(''),
     upComingEpisode: new FormControl(''),
     upComingSeason: new FormControl(''),
+    showEmoji: new FormControl(''),
     showState: new FormControl('ONGOING'),
     completed: new FormControl(false),
   });

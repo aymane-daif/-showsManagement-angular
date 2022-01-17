@@ -3,15 +3,21 @@
   <button (click)="addShow()">Add Show</button>
   <ul class="shows">
     <li *ngFor="let show of shows">
-      <article class="show">
-        <header>
-          <strong>{{ show.name | titlecase }}</strong>
+      <article class="show" *ngIf="!isLoading">
+        <header class="show-header">
+          <strong>{{ show.name | uppercase }}</strong>
+          <kbd>Completed:{{ show.completed ? "✅" : "❌" }}</kbd>
         </header>
         <img [src]="showImage(show.postImage)" class="poster" />
-        <footer>
-          Completed:<span>{{ show.completed }}</span>
+        <footer class="show-footer">
+          <span class="show-emoji">{{ show.showEmoji }}</span>
         </footer>
       </article>
     </li>
+    <div *ngIf="isLoading" class="shows">
+      <div class="placeholders" *ngFor="let i of placeHolderNumbers">
+        <app-show-loader></app-show-loader>
+      </div>
+    </div>
   </ul>
 </div>
