@@ -26,6 +26,12 @@ label {
 input {
   font-size: 0.75rem;
 }
+ul,
+li,
+ul li {
+  padding-left: 0;
+  list-style: none;
+}
 @media (max-width: 576px) {
   body {
     min-height: auto;

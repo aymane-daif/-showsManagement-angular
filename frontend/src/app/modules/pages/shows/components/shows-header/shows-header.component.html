@@ -1,8 +1,16 @@
 <div class="shows-header">
   <app-header>
     <div class="icons">
-      <img src="../../../../../../assets/avatar.svg" />
-      <img src="../../../../../../assets/notification.svg" />
+      <div class="user">
+        <img src="../../../../../../assets/avatar.svg" />
+        <ul class="dropdown">
+          <li>Account</li>
+          <li (click)="logOut()">Log out</li>
+        </ul>
+      </div>
+      <div class="notifications">
+        <img src="../../../../../../assets/notification.svg" />
+      </div>
     </div>
   </app-header>
 </div>

@@ -2,7 +2,29 @@
   border-bottom: 3px solid var(--primary);
   margin-bottom: 1.5rem;
 }
+.icons {
+  display: flex;
+  align-items: center;
+}
 .icons > * {
-  margin-left: 0.35rem;
+  margin-left: 0.75rem;
   cursor: pointer;
+}
+.icons .user {
+  position: relative;
+}
+.icons .user:hover .dropdown {
+  left: -100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.icons .dropdown {
+  display: none;
+  position: absolute;
+}
+.icons .dropdown li {
+  padding: 0.5rem;
+}
+.icons .dropdown li:hover {
+  background-color: var(--primary-hover);
 }
