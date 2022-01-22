@@ -1,6 +1,8 @@
 <app-shows-header></app-shows-header>
 <div class="container">
-  <button (click)="addShow()">Add Show</button>
+  <div class="add" (click)="addShow()" data-tooltip="Add show">
+    <img src="../../../../../../assets/add.svg" />
+  </div>
   <h1 *ngIf="!isLoading && shows.length === 0" class="welcome">
     Welcome to our app, please add a show
   </h1>
