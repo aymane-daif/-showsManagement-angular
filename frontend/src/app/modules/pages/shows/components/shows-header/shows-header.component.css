@@ -2,3 +2,7 @@
   border-bottom: 3px solid var(--primary);
   margin-bottom: 1.5rem;
 }
+.icons > * {
+  margin-left: 0.35rem;
+  cursor: pointer;
+}
