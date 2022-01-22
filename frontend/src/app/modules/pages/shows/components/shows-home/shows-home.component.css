@@ -28,7 +28,8 @@ li {
   letter-spacing: 2px;
   word-spacing: 6px;
 }
-.show-header strong {
+.show-header strong,
+.welcome {
   font-family: "Mochiy Pop P One", sans-serif;
   color: #cac5d0;
 }

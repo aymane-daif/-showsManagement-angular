@@ -1,6 +1,9 @@
 <app-shows-header></app-shows-header>
 <div class="container">
   <button (click)="addShow()">Add Show</button>
+  <h1 *ngIf="!isLoading && shows.length === 0" class="welcome">
+    Welcome to our app, please add a show
+  </h1>
   <ul class="shows">
     <li *ngFor="let show of shows">
       <article class="show" *ngIf="!isLoading">
