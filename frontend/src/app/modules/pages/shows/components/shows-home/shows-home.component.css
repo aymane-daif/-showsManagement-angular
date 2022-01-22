@@ -22,8 +22,6 @@ li {
   cursor: pointer;
 }
 .show-header {
-  display: flex;
-  flex-direction: column;
   font-size: 16px;
   letter-spacing: 2px;
   word-spacing: 6px;
@@ -33,19 +31,21 @@ li {
   font-family: "Mochiy Pop P One", sans-serif;
   color: #cac5d0;
 }
-.show-header kbd {
+.show-footer kbd {
   margin-left: auto;
   padding: 0.25rem 0.25rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
 }
 .show-footer .show-emoji {
   background: #4c5a67;
   border-radius: 50%;
   padding: 0.25rem;
+  height: 40px;
 }
 .show-header,
 .show-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1rem 0;
   padding: 0;
 }

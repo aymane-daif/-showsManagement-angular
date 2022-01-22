@@ -11,11 +11,11 @@
       <article class="show" *ngIf="!isLoading">
         <header class="show-header">
           <strong>{{ show.name | uppercase }}</strong>
-          <kbd>Completed:{{ show.completed ? "✅" : "❌" }}</kbd>
         </header>
         <img [src]="showImage(show.postImage)" class="poster" />
         <footer class="show-footer">
           <span class="show-emoji">{{ show.showEmoji }}</span>
+          <kbd>Completed:{{ show.completed ? "✅" : "❌" }}</kbd>
         </footer>
       </article>
     </li>
