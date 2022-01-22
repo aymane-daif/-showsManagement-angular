@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/modules/shared/services/data.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { IsUserLoggedService } from 'src/app/modules/shared/services/is-user-logged.service';
 
 @Component({
   selector: 'app-shows-home',
@@ -16,6 +17,7 @@ export class ShowsHomeComponent implements OnInit {
   isLoading = true;
   constructor(
     private dataService: DataService,
+    private userLogStatus: IsUserLoggedService,
     private sanitizer: DomSanitizer,
     private router: Router
   ) {}
@@ -36,6 +38,9 @@ export class ShowsHomeComponent implements OnInit {
     this.router.navigate(['shows/add']);
   }
   ngOnInit(): void {
+    if (!this.userLogStatus.isLogged()) {
+      this.router.navigate(['auth/signin']);
+    }
     this.setNumberPlaceHolders();
     this.isLoading = true;
 
