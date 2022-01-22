@@ -64,7 +64,19 @@
         required
       />
     </label>
+
+    <label for="dateOfRelease"
+      >Date of release of the upcoming episode
+      <input
+        type="datetime-local"
+        formControlName="dateOfRelease"
+        id="dateOfRelease"
+        name="dateOfRelease"
+        required
+      />
+    </label>
   </div>
+
   <label for="showEmoji">Express your reaction to the show by an emoji</label>
   <select id="showEmoji" formControlName="showEmoji" required>
     <option *ngFor="let emoji of emojis" [ngValue]="emoji.value">

@@ -11,7 +11,13 @@ import { ShowsHeaderComponent } from './components/shows-header/shows-header.com
 import { ShowLoaderComponent } from './components/show-loader/show-loader.component';
 
 @NgModule({
-  declarations: [ShowsHomeComponent, ShowFormComponent, AddShowComponent, ShowsHeaderComponent, ShowLoaderComponent],
+  declarations: [
+    ShowsHomeComponent,
+    ShowFormComponent,
+    AddShowComponent,
+    ShowsHeaderComponent,
+    ShowLoaderComponent,
+  ],
   imports: [
     CommonModule,
     ShowsRoutingModule,
