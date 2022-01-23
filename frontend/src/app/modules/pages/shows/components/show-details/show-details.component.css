@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
+h1 {
+  font-family: "Mochiy Pop P One", sans-serif;
+  color: #cac5d0;
+  text-align: center;
+  margin: 1rem auto;
+  margin-top: 0;
+}
+img {
+  max-width: 100%;
+  max-height: 100vmin;
+  margin: auto;
+  display: block;
+}
+section {
+  padding-top: 1.5rem;
+  width: 70%;
+}
+h6 {
+  margin: 1rem 0;
+}
+h6 span {
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 14px;
+  color: blanchedalmond;
+}

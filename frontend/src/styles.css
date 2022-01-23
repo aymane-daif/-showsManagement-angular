@@ -1,15 +1,17 @@
+*,
 :root {
   --form-element-background-color: rgba(0, 0, 0, 0.8);
   --form-element-placeholder-color: auto;
   --form-element-spacing-vertical: 0.4rem;
   --form-element-spacing-horizontal: 0.65rem;
-  --primary: #d91b42;
+  --primary: #d91b42 !important;
   --primary-hover: #f15f7c;
   --outline-width: 1px;
   --background-color: rgba(0, 0, 0, 0.8);
   --card-background-color: #15202b;
   --card-sectionning-background-color: #15202b;
 }
+html,
 body {
   background-color: rgba(0, 0, 0, 0.8);
   min-height: 100vh;

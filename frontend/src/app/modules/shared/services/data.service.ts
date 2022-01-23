@@ -9,6 +9,16 @@ export class DataService {
   baseUrl = 'http://localhost:1947/api/v1/users';
   constructor(private http: HttpClient, private router: Router) {}
 
+  getShow(username: String, showId: Number) {
+    const httpHeaders = new HttpHeaders().set(
+      'Authorization',
+      localStorage.getItem('token') || ''
+    );
+    console.log(httpHeaders);
+    return this.http.get(`${this.baseUrl}/${username}/shows/${showId}`, {
+      headers: httpHeaders,
+    });
+  }
   getShows(username: String) {
     const httpHeaders = new HttpHeaders().set(
       'Authorization',

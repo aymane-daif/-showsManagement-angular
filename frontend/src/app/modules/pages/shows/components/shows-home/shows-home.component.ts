@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/modules/shared/services/data.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IsUserLoggedService } from 'src/app/modules/shared/services/is-user-logged.service';
+import { ImageService } from 'src/app/modules/shared/services/image.service';
 
 @Component({
   selector: 'app-shows-home',
@@ -15,10 +15,11 @@ export class ShowsHomeComponent implements OnInit {
   shows: any = [];
   placeHolderNumbers: any = [];
   isLoading = true;
+
   constructor(
     private dataService: DataService,
     private userLogStatus: IsUserLoggedService,
-    private sanitizer: DomSanitizer,
+    private imageService: ImageService,
     private router: Router
   ) {}
 
@@ -27,13 +28,14 @@ export class ShowsHomeComponent implements OnInit {
       this.placeHolderNumbers.push(i);
     }
   }
+  showDetails(showId: Number) {
+    this.router.navigate(['shows', showId]);
+  }
 
   showImage(postImage: any) {
-    let base64data =
-      'data:' + postImage.contentType + ';base64,' + postImage.data;
-
-    return this.sanitizer.bypassSecurityTrustUrl(base64data);
+    return this.imageService.getImage(postImage);
   }
+
   addShow() {
     this.router.navigate(['shows/add']);
   }

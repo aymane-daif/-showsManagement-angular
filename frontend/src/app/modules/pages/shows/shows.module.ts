@@ -9,6 +9,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { AddShowComponent } from './components/add-show/add-show.component';
 import { ShowsHeaderComponent } from './components/shows-header/shows-header.component';
 import { ShowLoaderComponent } from './components/show-loader/show-loader.component';
+import { ShowDetailsComponent } from './components/show-details/show-details.component';
+import { GoBackComponent } from './components/go-back/go-back.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ShowLoaderComponent } from './components/show-loader/show-loader.compon
     AddShowComponent,
     ShowsHeaderComponent,
     ShowLoaderComponent,
+    ShowDetailsComponent,
+    GoBackComponent,
   ],
   imports: [
     CommonModule,

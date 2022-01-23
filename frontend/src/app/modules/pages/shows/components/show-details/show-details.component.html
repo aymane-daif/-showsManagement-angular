@@ -1,0 +1,24 @@
+<section class="container">
+  <app-go-back></app-go-back>
+  <div class="show-details" *ngIf="show">
+    <h1>{{ show.name | titlecase }}</h1>
+    <img [src]="showImage(show.postImage)" />
+    <h6>
+      Show State: <span>{{ show.showState }}</span>
+    </h6>
+    <h6>You did see the last episode? {{ show.completed ? "✅" : "❌" }}</h6>
+    <h6>This show is like{{ show.showEmoji }}</h6>
+    <h6>
+      Last seen episode was
+      <span>{{ show.lastSeenEpisode.episodeNumber }}</span> of season
+      <span>{{ show.lastSeenEpisode.seasonNumber }}</span>
+    </h6>
+    <h6 *ngIf="show.showState === 'ONGOING'">
+      The upcpming episode is
+      <span>{{ show.upComingEpisode.episode.episodeNumber }}</span>
+      of season <span>{{ show.upComingEpisode.episode.seasonNumber }}</span
+      >, it will be released at
+      <span>{{ show.upComingEpisode.releaseDate | date: "medium" }}</span>
+    </h6>
+  </div>
+</section>

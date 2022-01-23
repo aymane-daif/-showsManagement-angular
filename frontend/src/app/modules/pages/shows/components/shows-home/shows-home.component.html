@@ -12,7 +12,11 @@
         <header class="show-header">
           <strong>{{ show.name | uppercase }}</strong>
         </header>
-        <img [src]="showImage(show.postImage)" class="poster" />
+        <img
+          [src]="showImage(show.postImage)"
+          class="poster"
+          (click)="showDetails(show.showId)"
+        />
         <footer class="show-footer">
           <span class="show-emoji">{{ show.showEmoji }}</span>
           <kbd>Completed:{{ show.completed ? "✅" : "❌" }}</kbd>

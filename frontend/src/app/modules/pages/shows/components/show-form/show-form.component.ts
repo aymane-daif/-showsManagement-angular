@@ -29,7 +29,7 @@ export class ShowFormComponent implements OnInit {
     showEmoji: new FormControl(this.emojis[0].value),
     showState: new FormControl('ONGOING'),
     completed: new FormControl(false),
-    dateOfRelease: new FormControl(new Date()),
+    releaseDate: new FormControl(new Date()),
   });
   constructor(private dataService: DataService) {}
 
