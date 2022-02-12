@@ -19,6 +19,16 @@ export class DataService {
       headers: httpHeaders,
     });
   }
+  deleteShow(username: String, showId: Number) {
+    const httpHeaders = new HttpHeaders().set(
+      'Authorization',
+      localStorage.getItem('token') || ''
+    );
+    console.log(httpHeaders);
+    return this.http.delete(`${this.baseUrl}/${username}/shows/${showId}`, {
+      headers: httpHeaders,
+    });
+  }
   getShows(username: String) {
     const httpHeaders = new HttpHeaders().set(
       'Authorization',

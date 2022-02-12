@@ -10,6 +10,7 @@ import { ImageService } from 'src/app/modules/shared/services/image.service';
   styleUrls: ['./shows-home.component.css'],
 })
 export class ShowsHomeComponent implements OnInit {
+  isShownMenu: boolean = false;
   totalTvShows: any;
   username: String = '';
   shows: any = [];
@@ -39,6 +40,35 @@ export class ShowsHomeComponent implements OnInit {
   addShow() {
     this.router.navigate(['shows/add']);
   }
+
+  deleteShow(showId: Number) {
+    this.isShownMenu = false;
+    if (localStorage.getItem('username')) {
+      this.username = localStorage.getItem('username') || '';
+    }
+    this.dataService.deleteShow(this.username, showId).subscribe({
+      next: (response: any) => {
+        this.shows = response;
+        this.totalTvShows = this.shows.length;
+        localStorage.setItem('totalTvShows', this.totalTvShows);
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
+        console.log(response);
+      },
+      error: (response: any) => {
+        console.log(response);
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
+      },
+    });
+  }
+
+  showMenu() {
+    this.isShownMenu = !this.isShownMenu;
+  }
+
   ngOnInit(): void {
     if (!this.userLogStatus.isLogged()) {
       this.router.navigate(['auth/signin']);

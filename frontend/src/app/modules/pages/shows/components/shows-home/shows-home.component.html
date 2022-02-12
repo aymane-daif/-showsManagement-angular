@@ -11,6 +11,29 @@
       <article class="show" *ngIf="!isLoading">
         <header class="show-header">
           <strong>{{ show.name | uppercase }}</strong>
+          <div
+            class="dots"
+            (click)="showMenu()"
+            [ngClass]="isShownMenu ? 'showMenu' : ''"
+          >
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </div>
+          <ul class="menu" [ngClass]="isShownMenu ? 'showMenu' : ''">
+            <li>
+              <div class="menu-item">
+                <img src="../../../../../../assets/edit.svg" alt="edit" />
+                Edit
+              </div>
+            </li>
+            <li>
+              <div class="menu-item" (click)="deleteShow(show.showId)">
+                <img src="../../../../../../assets/trash.svg" alt="trash" />
+                Delete
+              </div>
+            </li>
+          </ul>
         </header>
         <img
           [src]="showImage(show.postImage)"
