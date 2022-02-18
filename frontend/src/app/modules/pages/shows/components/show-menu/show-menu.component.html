@@ -1,0 +1,26 @@
+<div
+  class="dots"
+  (click)="showMenu(showId)"
+  [ngClass]="isShownMenu && showId === currentShowId ? 'showMenu' : ''"
+>
+  <span>.</span>
+  <span>.</span>
+  <span>.</span>
+</div>
+<ul
+  class="menu"
+  [ngClass]="isShownMenu && showId === currentShowId ? 'showMenu' : ''"
+>
+  <li>
+    <div class="menu-item">
+      <img src="../../../../../../assets/edit.svg" alt="edit" />
+      Edit
+    </div>
+  </li>
+  <li>
+    <div class="menu-item" (click)="deleteShow(showId)">
+      <img src="../../../../../../assets/trash.svg" alt="trash" />
+      Delete
+    </div>
+  </li>
+</ul>

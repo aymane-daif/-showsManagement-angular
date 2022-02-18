@@ -10,8 +10,6 @@ import { ImageService } from 'src/app/modules/shared/services/image.service';
   styleUrls: ['./shows-home.component.css'],
 })
 export class ShowsHomeComponent implements OnInit {
-  isShownMenu: boolean = false;
-  currentShowId = null;
   totalTvShows: any;
   username: String = '';
   shows: any[] = [];
@@ -42,29 +40,12 @@ export class ShowsHomeComponent implements OnInit {
     this.router.navigate(['shows/add']);
   }
 
-  deleteShow(showId: Number) {
-    this.isShownMenu = false;
-    if (localStorage.getItem('username')) {
-      this.username = localStorage.getItem('username') || '';
-    }
-    this.dataService.deleteShow(this.username, showId).subscribe({
-      next: (response: any) => {
-        this.shows = this.shows.filter((show: any) => {
-          if (show.showId !== showId) return show;
-        });
-        this.totalTvShows = this.shows.length;
-        localStorage.setItem('totalTvShows', this.totalTvShows);
-        console.log(response);
-      },
-      error: (response: any) => {
-        console.log(response);
-      },
+  updateShows(deletedShowId: Number) {
+    this.shows = this.shows.filter((show: any) => {
+      if (show.showId !== deletedShowId) return show;
     });
-  }
-
-  showMenu(showId: any) {
-    this.currentShowId = showId;
-    this.isShownMenu = !this.isShownMenu;
+    this.totalTvShows = this.shows.length;
+    localStorage.setItem('totalTvShows', this.totalTvShows);
   }
 
   ngOnInit(): void {

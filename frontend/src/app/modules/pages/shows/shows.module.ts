@@ -11,6 +11,7 @@ import { ShowsHeaderComponent } from './components/shows-header/shows-header.com
 import { ShowLoaderComponent } from './components/show-loader/show-loader.component';
 import { ShowDetailsComponent } from './components/show-details/show-details.component';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import { ShowMenuComponent } from './components/show-menu/show-menu.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     ShowLoaderComponent,
     ShowDetailsComponent,
     GoBackComponent,
+    ShowMenuComponent,
   ],
   imports: [
     CommonModule,
