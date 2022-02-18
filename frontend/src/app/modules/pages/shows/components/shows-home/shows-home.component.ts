@@ -11,9 +11,10 @@ import { ImageService } from 'src/app/modules/shared/services/image.service';
 })
 export class ShowsHomeComponent implements OnInit {
   isShownMenu: boolean = false;
+  currentShowId = null;
   totalTvShows: any;
   username: String = '';
-  shows: any = [];
+  shows: any[] = [];
   placeHolderNumbers: any = [];
   isLoading = true;
 
@@ -48,24 +49,21 @@ export class ShowsHomeComponent implements OnInit {
     }
     this.dataService.deleteShow(this.username, showId).subscribe({
       next: (response: any) => {
-        this.shows = response;
+        this.shows = this.shows.filter((show: any) => {
+          if (show.showId !== showId) return show;
+        });
         this.totalTvShows = this.shows.length;
         localStorage.setItem('totalTvShows', this.totalTvShows);
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 3000);
         console.log(response);
       },
       error: (response: any) => {
         console.log(response);
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 3000);
       },
     });
   }
 
-  showMenu() {
+  showMenu(showId: any) {
+    this.currentShowId = showId;
     this.isShownMenu = !this.isShownMenu;
   }
 
@@ -93,7 +91,7 @@ export class ShowsHomeComponent implements OnInit {
         console.log(response);
       },
       error: (response: any) => {
-        console.log(response + '*******');
+        console.log(response, '*******');
         setTimeout(() => {
           this.isLoading = false;
         }, 3000);
