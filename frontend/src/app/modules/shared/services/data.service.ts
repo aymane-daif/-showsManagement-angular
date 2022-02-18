@@ -46,7 +46,7 @@ export class DataService {
       localStorage.getItem('token') || ''
     );
 
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append('file', file, file.name);
 
     this.http

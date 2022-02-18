@@ -12,6 +12,7 @@ import { ShowLoaderComponent } from './components/show-loader/show-loader.compon
 import { ShowDetailsComponent } from './components/show-details/show-details.component';
 import { GoBackComponent } from './components/go-back/go-back.component';
 import { ShowMenuComponent } from './components/show-menu/show-menu.component';
+import { ShowEditComponent } from './components/show-edit/show-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ShowMenuComponent } from './components/show-menu/show-menu.component';
     ShowDetailsComponent,
     GoBackComponent,
     ShowMenuComponent,
+    ShowEditComponent,
   ],
   imports: [
     CommonModule,

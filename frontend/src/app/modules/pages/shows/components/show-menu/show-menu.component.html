@@ -12,7 +12,7 @@
   [ngClass]="isShownMenu && showId === currentShowId ? 'showMenu' : ''"
 >
   <li>
-    <div class="menu-item">
+    <div class="menu-item" (click)="goToEditShow(showId)">
       <img src="../../../../../../assets/edit.svg" alt="edit" />
       Edit
     </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/modules/shared/services/data.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ShowMenuComponent implements OnInit {
   currentShowId: Number = -1;
   username: String = '';
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -37,5 +38,9 @@ export class ShowMenuComponent implements OnInit {
   showMenu(showId: Number) {
     this.isShownMenu = !this.isShownMenu;
     this.currentShowId = showId;
+  }
+
+  goToEditShow(showId: Number) {
+    this.router.navigate(['shows', showId, 'edit']);
   }
 }

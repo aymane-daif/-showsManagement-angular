@@ -1,0 +1,20 @@
+<section class="container">
+  <app-go-back></app-go-back>
+  <div *ngIf="show">
+    <h1>{{ show.name | titlecase }}</h1>
+    <img [src]="showImage(show.postImage)" />
+    <label for="file"
+      >Change show poster
+      <input
+        type="file"
+        id="file"
+        name="file"
+        accept="image/*"
+        (change)="getFile($event)"
+      />
+    </label>
+    <div *ngIf="imageUrl && imageUrl !== ''">
+      <img [src]="imageUrl" />
+    </div>
+  </div>
+</section>
