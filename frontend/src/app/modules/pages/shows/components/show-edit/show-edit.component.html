@@ -1,20 +1,141 @@
 <section class="container">
   <app-go-back></app-go-back>
   <div *ngIf="show">
-    <h1>{{ show.name | titlecase }}</h1>
-    <img [src]="showImage(show.postImage)" />
-    <label for="file"
-      >Change show poster
+    <form
+      id="form"
+      [formGroup]="editShowForm"
+      (ngSubmit)="editShow($event)"
+      enctype="multipart/form-data"
+    >
+      <label for="name">Show's name</label>
       <input
-        type="file"
-        id="file"
-        name="file"
-        accept="image/*"
-        (change)="getFile($event)"
+        formControlName="name"
+        type="text"
+        id="name"
+        name="name"
+        [value]="show.name"
+        required
       />
-    </label>
-    <div *ngIf="imageUrl && imageUrl !== ''">
-      <img [src]="imageUrl" />
-    </div>
+      <div *ngIf="imageUrl && imageUrl !== ''">
+        <img [src]="imageUrl" />
+      </div>
+      <div *ngIf="!imageUrl || imageUrl === ''">
+        <img [src]="showImage(show.postImage)" />
+      </div>
+      <label for="file"
+        >Change show poster
+        <input
+          type="file"
+          id="file"
+          name="file"
+          accept="image/*"
+          (change)="getFile($event)"
+        />
+      </label>
+
+      <div class="grid">
+        <label for="lastSeenEpisode"
+          >Last seen episode
+          <input
+            type="text"
+            formControlName="lastSeenEpisode"
+            id="lastSeenEpisode"
+            name="lastSeenEpisode"
+            [value]="show.lastSeenEpisode.episodeNumber"
+            required
+          />
+        </label>
+
+        <label for="lastSeenSeason"
+          >Last seen season
+          <input
+            type="text"
+            formControlName="lastSeenSeason"
+            id="lastSeenSeason"
+            name="lastSeenSeason"
+            [value]="show.lastSeenEpisode.seasonNumber"
+            required
+          />
+        </label>
+      </div>
+
+      <div class="grid">
+        <label for="upComingEpisode"
+          >UpComing episode
+          <input
+            type="text"
+            formControlName="upComingEpisode"
+            id="upComingEpisode"
+            name="upComingEpisode"
+            [value]="show.upComingEpisode.episode.episodeNumber"
+            required
+          />
+        </label>
+
+        <label for="upComingSeason"
+          >UpComing season number
+          <input
+            type="text"
+            formControlName="upComingSeason"
+            id="upComingSeason"
+            name="upComingSeason"
+            [value]="show.upComingEpisode.episode.seasonNumber"
+            required
+          />
+        </label>
+
+        <label for="releaseDate"
+          >Date of release of the upcoming episode
+          <input
+            type="datetime-local"
+            formControlName="releaseDate"
+            id="releaseDate"
+            name="releaseDate"
+            [value]="show.upComingEpisode.releaseDate"
+            required
+          />
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>Show's state</legend>
+        <label for="ONGOING">
+          <input
+            type="radio"
+            id="ONGOING"
+            formControlName="showState"
+            name="showState"
+            value="ONGOING"
+            [checked]="show.showState === 'ONGOING'"
+          />
+          ONGOING
+        </label>
+        <label for="COMPLETE">
+          <input
+            type="radio"
+            id="COMPLETE"
+            formControlName="showState"
+            name="showState"
+            value="COMPLETE"
+            [checked]="show.showState === 'COMPLETE'"
+          />
+          COMPLETE
+        </label>
+
+        <label for="completed">
+          <input
+            type="checkbox"
+            id="completed"
+            formControlName="completed"
+            name="completed"
+            role="switch"
+            [checked]="show.completed"
+          />
+          Show completed
+        </label>
+      </fieldset>
+
+      <button role="button" class="btn outline" type="submit">Edit show</button>
+    </form>
   </div>
 </section>

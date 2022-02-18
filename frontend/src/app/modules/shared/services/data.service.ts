@@ -90,4 +90,86 @@ export class DataService {
         },
       });
   };
+
+  putShow = (
+    showId: Number,
+    showData: any,
+    file: File,
+    originalImage: Boolean
+  ) => {
+    let imageId = '';
+    const httpHeaders = new HttpHeaders().set(
+      'Authorization',
+      localStorage.getItem('token') || ''
+    );
+
+    if (originalImage) {
+      console.log(showData);
+      showData.showId = showId;
+      this.http
+        .put(
+          `${this.baseUrl}/${localStorage.getItem('username')}/shows`,
+          showData,
+          {
+            headers: httpHeaders,
+            reportProgress: true,
+            observe: 'response',
+          }
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log(response);
+            this.router.navigate(['shows']);
+          },
+          error: (response: any) => {
+            console.log(response);
+          },
+        });
+    } else {
+      let formData = new FormData();
+      formData.append('file', file, file.name);
+
+      this.http
+        .put(
+          `${this.baseUrl}/${localStorage.getItem('username')}/shows/images`,
+          formData,
+          {
+            headers: httpHeaders,
+            reportProgress: true,
+            observe: 'response',
+          }
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log(response);
+            imageId = response.body.id;
+            showData.posterId = imageId;
+            showData.showId = showId;
+            console.log(showData);
+            return this.http
+              .put(
+                `${this.baseUrl}/${localStorage.getItem('username')}/shows`,
+                showData,
+                {
+                  headers: httpHeaders,
+                  reportProgress: true,
+                  observe: 'response',
+                }
+              )
+              .subscribe({
+                next: (response: any) => {
+                  console.log(response);
+                  this.router.navigate(['shows']);
+                },
+                error: (response: any) => {
+                  console.log(response);
+                },
+              });
+          },
+          error: (response: any) => {
+            console.log(response);
+          },
+        });
+    }
+  };
 }
